@@ -12,6 +12,12 @@ use GDText\Color;
 
 $res = scrape();
 
+if(isset($_GET['transparent'])){
+	$bg_alpha = 127;
+}else{
+	$bg_alpha = 0;
+}
+
 $w = 800;
 $h = 600;
 
@@ -27,7 +33,11 @@ $white = "255, 255, 255";
 
 $white = imagecolorallocate($im, 255, 255, 255);
 
-imagefill($im, 0, 0, $white);
+// Transparent Background
+imagealphablending($im, false);
+$transparency = imagecolorallocatealpha($im, 255, 255, 255, $bg_alpha);
+imagefill($im, 0, 0, $transparency);
+imagesavealpha($im, true);
 
 $box = new Box($im);
 $box -> setFontFace(__DIR__ . '/Vera-Bold.ttf');
