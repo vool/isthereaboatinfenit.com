@@ -83,12 +83,12 @@ $page_desc = 'Is There A Boat In Fenit Dot Com';
 		<meta name="twitter:description" content="<?php echo $page_desc ?>" />
 		<meta name="twitter:creator" content="@voolist">
 		<meta name="twitter:title" content="<?php echo $page_title ?>">
-		<meta name="twitter:image" content="<?php echo $res['vessels'][0]['img'] ?>">
+		<meta name="twitter:image" content="http://isthereaboatinfenit.com/image.png">
 		
 		<!-- facebook'in -->
 		<meta property="og:title" content="<?php echo $page_title ?>" />
 		<meta property="og:description" content="<?php echo $page_desc ?>" />
-		<meta property="og:image" content="<?php echo $res['vessels'][0]['img'] ?>" />
+		<meta property="og:image" content="http://isthereaboatinfenit.com/image.png" />
 		<meta property="og:url" content="http://IsThereABoatInFenit.com" />
 		<meta property="og:locale" content="en_GB" />
 
