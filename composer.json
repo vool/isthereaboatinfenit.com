@@ -1,5 +1,6 @@
 {
     "require": {
-        "electrolinux/phpquery": "0.9.*"
+        "electrolinux/phpquery": "0.9.*",
+        "stil/gd-text": "~1.0"
     }
 }
