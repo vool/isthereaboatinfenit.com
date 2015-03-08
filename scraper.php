@@ -43,7 +43,7 @@ function scrape() {
 
 		$details = array();
 
-		$details['name'] = ucfirst(strtolower( pq($v) -> find("td:eq(3) a:eq(0)") -> text()));
+		$details['name'] = ucfirst(strtolower( pq($v) -> find("td:eq(1) a:eq(0)") -> text()));
 
 		// check name string to get around the tr with 'No data for specified filters'
 		if ($details['name'] == '') {
@@ -51,17 +51,17 @@ function scrape() {
 
 		} else {
 
-			$details['link'] = pq($v) -> find("td:eq(3) a:eq(0)") -> attr('href');
+			$details['link'] = pq($v) -> find("td:eq(1) a:eq(0)") -> attr('href');
 
-			$details['photo_link'] = pq($v) -> find("td:eq(4) a:eq(0)") -> attr('href');
+			$details['photo_link'] = pq($v) -> find("td:eq(2) a:eq(0)") -> attr('href');
 
-			$details['thumb'] = pq($v) -> find("td:eq(4) img") -> attr('src');
+			$details['thumb'] = pq($v) -> find("td:eq(2) img") -> attr('src');
 
-			$img_parts = explode("&", pq($v) -> find("td:eq(4) img") -> attr('src'));
+			$img_parts = explode("&", pq($v) -> find("td:eq(2) img") -> attr('src'));
 
-			$size_parts = explode("x", pq($v) -> find("td:eq(6)") -> text());
+			$size_parts = explode("x", pq($v) -> find("td:eq(4)") -> text());
 
-			$details['size'] = array('l' => $size_parts[0], 'b' => substr(trim($size_parts[1]), 0, -2));
+			$details['size'] = array('l' => $size_parts[0], 'b' => trim($size_parts[1]));
 
 			$details['img'] = $img_parts[0];
 
