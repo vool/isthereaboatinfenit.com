@@ -18,6 +18,8 @@ function scrape() {
 	//$port_id = 245; //dubland
 
 	$scrapeUrl = "http://www.marinetraffic.com/en/ais/index/ships/range/port_id:" . $port_id . '/ship_type:7';
+	
+	$marine_traffic_base = "http://www.marinetraffic.com";
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $scrapeUrl);
@@ -51,7 +53,7 @@ function scrape() {
 
 		} else {
 
-			$details['link'] = pq($v) -> find("td:eq(1) a:eq(0)") -> attr('href');
+			$details['link'] = $marine_traffic_base.pq($v) -> find("td:eq(1) a:eq(0)") -> attr('href');
 
 			$details['photo_link'] = pq($v) -> find("td:eq(2) a:eq(0)") -> attr('href');
 

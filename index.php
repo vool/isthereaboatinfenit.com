@@ -68,9 +68,87 @@ $page_desc = 'Is There A Boat In Fenit Dot Com';
 	}
 
 	@keyframes beat {
-	50% { /*transform: scale(1.2);*/
-	color:red;
+		50% { /*transform: scale(1.2);*/
+		color:red;
+		}
 	}
+	
+	.modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(52, 152, 219, 0.5);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    background-image: url(wave_bg.png);
+	}
+	
+	.modalDialog:target {
+	    opacity:1;
+	    pointer-events: auto;
+	}
+	
+	.modalDialog > div {
+	    width: 600px;
+	    position: relative;
+	    margin: 5% auto;
+	    padding: 5px 20px 13px 20px;
+	    background: #fff;
+	          box-shadow: 0 5px 5px 0 rgba(0, 0, 1, 0.4);
+	
+	}
+	.close {
+	    background: #c0392b;
+	    color: #FFFFFF;
+	    line-height: 25px;
+	    position: absolute;
+	    right: -12px;
+	    text-align: center;
+	    top: -10px;
+	    width: 24px;
+	    text-decoration: none;
+	    font-weight: bold;
+	    -webkit-border-radius: 12px;
+	    -moz-border-radius: 12px;
+	    border-radius: 12px;
+	    -moz-box-shadow: 1px 1px 3px #000;
+	    -webkit-box-shadow: 1px 1px 3px #000;
+	    box-shadow: 1px 1px 3px #000;
+	}
+	.close:hover {
+	    background: #e74c3c;
+	}
+	
+	a.showboat{
+		text-decoration:none;
+	}
+	
+	.modalDialog img {
+		width:100%;
+	}
+	
+	.modalDialog h2 {
+		text-align:left;
+		color:#2c3e50;
+	}
+	
+	.modalDialog a.sealink {
+		background-color:#2980b9;
+		color:#fff;
+		padding:5px;
+		text-decoration:none;
+		display:block;
+		margin-top:10px;
+	}
+	
+	.modalDialog a.sealink:hover {
+		background-color:#27ae60;
 	}
 
   </style>
@@ -96,16 +174,32 @@ $page_desc = 'Is There A Boat In Fenit Dot Com';
 </head>
 
 <body>
-  <h1 id="answer">
-  	<?php echo $res['vesselCount'] > 0 ? "Yes" : "No"; ?>
-</h1>
 
-<h2 id="legend">
-	<?php echo $res['vesselCount'] > 0 ? "Her name is <strong>" . $res['vessels'][0]['name'] . "</strong> and she's a fine thing, " . $res['vessels'][0]['size']['l'] . " meters long and " . $res['vessels'][0]['size']['b'] . " meters wide !" : ''; ?>
-</h2>
+<?php echo $res['vesselCount'] > 0 ? '<a href="#showBoat" class="showboat">' : ''; ?>
+	
+	<h1 id="answer">
+	  	<?php echo $res['vesselCount'] > 0 ? "Yes" : "No"; ?>
+	</h1>
+	
+	<h2 id="legend">
+		<?php echo $res['vesselCount'] > 0 ? "Her name is <strong>" . $res['vessels'][0]['name'] . "</strong> and she's a fine thing, " . $res['vessels'][0]['size']['l'] . " meters long and " . $res['vessels'][0]['size']['b'] . " meters wide !" : ''; ?>
+	</h2>
+
+<?php echo $res['vesselCount'] > 0 ? '</a>' : ''; ?>
+
+
+<!-- Modal -->
+
+<div id="showBoat" class="modalDialog">
+    <div>	<a href="#close" title="Close" class="close">X</a>
+			<h2><?php echo $res['vessels'][0]['name'] ?></h2>
+			<img src="<?php echo $res['vessels'][0]['img'] ?>" />
+			<a href="<?php echo $res['vessels'][0]['link'] ?>" class="sealink" target="_blank"> View vessel on marinetraffic.com</a>
+    </div>
+</div>
 
 <footer>
-<a href="http://vool.ie">Made with <span>❤</span> in Fenit</a>
+<a href="http://vool.ie" target="_blank">Made with <span>❤</span> in Fenit</a>
 </footer>
 
 <script>
