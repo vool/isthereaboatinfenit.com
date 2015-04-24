@@ -199,7 +199,7 @@ $page_desc = 'Is There A Boat In Fenit Dot Com';
 </div>
 
 <footer>
-<a href="http://vool.ie" target="_blank">Made with <span>❤</span> in Fenit</a>
+<a href="http://www.vool.ie/is-there-a-boat-in-fenit-dot-com/" target="_blank">Made with <span>❤</span> in Fenit</a>
 </footer>
 
 <script>
