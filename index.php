@@ -53,11 +53,20 @@ $page_desc = 'Is There A Boat In Fenit Dot Com';
 		width: 100%;
 		margin-top: 2px;
 		vertical-align: middle;
+		z-index:100;
 	}
 
 	footer a {
 		text-decoration: none;
 		color: #999;
+		background: rgba(255, 255, 255, 0.3);
+		padding:10px 20px;
+		-webkit-border-top-left-radius: 10px;
+		-webkit-border-top-right-radius: 10px;
+		-moz-border-radius-topleft: 10px;
+		-moz-border-radius-topright: 10px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
 	}
 
 	footer a span {
@@ -80,7 +89,7 @@ $page_desc = 'Is There A Boat In Fenit Dot Com';
     bottom: 0;
     left: 0;
     background: rgba(52, 152, 219, 0.5);
-    z-index: 99999;
+    z-index: 99;
     opacity:0;
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
