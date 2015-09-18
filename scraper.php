@@ -61,7 +61,7 @@ function scrape() {
 
 			$img_parts = explode("&", pq($v) -> find("td:eq(2) img") -> attr('src'));
 
-			$size_parts = explode("x", pq($v) -> find("td:eq(4)") -> text());
+			$size_parts = explode("x", pq($v) -> find("td:eq(5)") -> text());
 
 			$details['size'] = array('l' => $size_parts[0], 'b' => trim($size_parts[1]));
 
