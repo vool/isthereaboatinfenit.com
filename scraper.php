@@ -24,6 +24,12 @@ function scrape() {
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $scrapeUrl);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	
+	$headers = [
+	    'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0',
+	];
+
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 	$html = curl_exec($ch);
 
