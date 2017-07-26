@@ -11,10 +11,6 @@ function scrape() {
 
 	$port_id = 2308;
 
-	$page_title = 'Is there a boat in Fenit ?';
-
-	$page_desc = 'Is There A Boat In Fenit Dot Com';
-
 	//$port_id = 245; //dubland
 
 	$scrapeUrl = "http://www.marinetraffic.com/en/ais/index/ships/range/port_id:" . $port_id . '/ship_type:7';
@@ -55,6 +51,7 @@ function scrape() {
 
 		// check name string to get around the tr with 'No data for specified filters'
 		if ($details['name'] == '') {
+			
 			$res['vesselCount']--;
 
 		} else {
