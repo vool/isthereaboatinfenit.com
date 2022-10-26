@@ -21,11 +21,14 @@ if(isset($_GET['transparent'])){
 $w = 800;
 $h = 600;
 
+/*
 if ($res['vesselCount'] > 0) {
 	$text = "Yes";
 } else {
 	$text = "No";
 }
+*/
+$text = "?";
 
 $im = imagecreatetruecolor($w, $h);
 
